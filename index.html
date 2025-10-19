@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc mừng 20/10</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        html, body { height: 100%; margin: 0; background: #000; color: #fff; overflow: hidden; }
+        #ground { position: relative; width: 100%; height: 100%; background: #000; }
+        canvas#canvas { display: block; width: 100%; height: 100%; }
+        #wishes {
+            position: absolute; left: 50%; bottom: 8%; transform: translateX(-50%);
+            color: #fff;
+            text-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 16px rgba(255,192,218,0.15);
+        }
+    </style>
+</head>
+<body>
+    <div id="ground">
+        <canvas id="canvas"></canvas>
+        <div id="wishes"></div>
+        <audio id="bgm" src="nhac.mp3" preload="auto" autoplay loop playsinline webkit-playsinline></audio>
+    </div>
+    <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

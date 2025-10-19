@@ -1,0 +1,129 @@
+html, body {
+	/* reset + dark cosmic tone */
+	margin: 0;
+	height: 100%;
+	background: #000 !important;
+	color: #fff;
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Segoe UI Emoji";
+}
+
+body {
+	overflow: hidden;
+	/* keep solid black; WebGL draws the universe background */
+	background: #000 !important;
+}
+
+#ground {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	background: #000; /* fallback under WebGL */
+}
+
+#canvas {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+}
+
+canvas {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+/* One unified impressive glowing script for the wish */
+#wishes {
+	position: absolute;
+	left: 50%;
+	top: calc(env(safe-area-inset-top, 0px) + 6%);
+	transform: translateX(-50%);
+	text-align: center;
+	max-width: 90vw;
+	padding: 0 20px;
+
+	/* typography */
+	font-family: "Great Vibes", "Poppins", "Segoe UI", system-ui, Arial, sans-serif;
+	font-size: clamp(26px, 5vw, 60px);
+	font-weight: 700;
+	letter-spacing: 0.6px;
+
+	/* gradient text + stroke + glow */
+	background: linear-gradient(180deg, #ffffff 0%, #ffb7d5 50%, #b388ff 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke: 1px rgba(255,255,255,0.35);
+	text-shadow:
+		0 0 10px rgba(255,105,180,0.75),
+		0 0 24px rgba(179,136,255,0.55),
+		0 0 40px rgba(255,183,213,0.35);
+	animation: glowPulse 6s ease-in-out infinite alternate;
+
+	/* behavior */
+	z-index: 2;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 1.2s ease;
+}
+
+/* Floating music button (styled, shown by JS only when needed) */
+#music-btn {
+	position: fixed;
+	right: 14px;
+	bottom: 14px;
+	padding: 10px 14px;
+	border-radius: 999px;
+	border: 1px solid rgba(255,255,255,0.4);
+	background: rgba(255,105,180,0.18);
+	color: #fff;
+	backdrop-filter: blur(6px);
+	cursor: pointer;
+	font-weight: 700;
+	z-index: 9999;
+}
+
+/* Subtle glow pulse */
+@keyframes glowPulse {
+	0% {
+		text-shadow:
+			0 0 8px rgba(255,105,180,0.6),
+			0 0 18px rgba(179,136,255,0.4),
+			0 0 26px rgba(255,183,213,0.25);
+	}
+	100% {
+		text-shadow:
+			0 0 16px rgba(255,105,180,0.9),
+			0 0 36px rgba(179,136,255,0.65),
+			0 0 60px rgba(255,183,213,0.45);
+	}
+}
+
+/* Mobile: smaller text */
+@media (max-width: 600px) {
+	#wishes {
+		font-size: clamp(18px, 4.4vw, 34px);
+		top: calc(env(safe-area-inset-top, 0px) + 6%);
+		line-height: 1.22;
+		letter-spacing: 0.3px;
+		padding: 0 12px;
+	}
+	#music-btn {
+		right: 10px;
+		bottom: 10px;
+		padding: 8px 12px;
+		font-size: 13px;
+	}
+}
+
+@media (max-width: 400px) {
+	#wishes {
+		font-size: clamp(16px, 4.2vw, 24px);
+		top: calc(env(safe-area-inset-top, 0px) + 6.5%);
+	}
+	#music-btn {
+		padding: 7px 10px;
+		font-size: 12px;
+	}
+}
