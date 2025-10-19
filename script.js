@@ -27,7 +27,7 @@ const lerp = (a, b, t) => a + (b - a) * t;
 
 // Single fixed wish text
 const wishes = [
-	"Không chỉ hôm nay, mà mỗi ngày anh đều muốn mang đến cho em niềm vui và hạnh phúc. Chúc em Hìn 20/10 tràn ngập yêu thương!"
+	"Không chỉ hôm nay, mà mỗi ngày anh đều muốn mang đến cho em niềm vui và hạnh phúc. Chúc em Hìn 20/10 tràn ngập yêu thương! H <3 Đ"
 ];
 const wordsForRing = "Em • Luôn • Xinh • Đẹp • Vui • Vẻ • Cảm • Ơn • Em • Nhiều • Lắm • 20/10 • Yêu • Em".split("•").map(s => s.trim());
 
@@ -425,4 +425,5 @@ window.addEventListener('resize', () => {
 	renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2));
 	renderer.setSize(w, h);
 });
+
 
